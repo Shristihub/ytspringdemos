@@ -1,0 +1,80 @@
+package com.adminpanel.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.adminpanel.model.Book;
+
+@Service
+public class AdminServiceImpl implements IAdminService {
+	
+	
+	// from this service layer communicate to the other restapi
+	// inbuilt class RestTemplate
+	//autowire RestTemplate
+	@Autowired
+	private RestTemplate restTemplate;
+	private final String BASEURL="http://localhost:8081/book-api/v1/books";
+
+	@Override
+	public void insertBook(Book book) {
+//		http://localhost:8081/book-api/v1/books
+		ResponseEntity<Void> responseEntity = 
+				restTemplate.postForEntity(BASEURL, book, Void.class);
+		System.out.println(responseEntity.getStatusCode().value());
+	}
+
+	@Override
+	public void updateBook(Book book) {
+//		http://localhost:8081/book-api/v1/books		
+		restTemplate.put(BASEURL, book);
+	}
+
+	@Override
+	public void deleteBookById(int bookId) {
+//		http://localhost:8081/book-api/v1/books/bookid/1
+		String url =  BASEURL.concat("/bookid/")+bookId;
+		restTemplate.delete(url);
+	}
+
+	@Override
+	public List<Book> getAllBooks() {
+//		http://localhost:8081/book-api/v1/books
+		ResponseEntity<List>  responseEntity = 
+				restTemplate.getForEntity(BASEURL,List.class);
+		List<Book> books = responseEntity.getBody();
+		return books;
+	}
+
+	@Override
+	public Book getBookById(int bookId) {
+//		http://localhost:8081/book-api/v1/books/bookId?bookId=10
+		String url = BASEURL.concat("/bookId?bookId=")+bookId;
+		ResponseEntity<Book> responseEntity = 
+				restTemplate.getForEntity(url, Book.class);
+		Book book = responseEntity.getBody();
+		return book;
+	}
+
+	@Override
+	public List<Book> getBookByAuthor(String mauthor) {
+//		http://localhost:8081/book-api/v1/books/author/Kathy
+		String url = BASEURL.concat("/author/")+mauthor;
+		ResponseEntity<List>  responseEntity = 
+				restTemplate.getForEntity(url, List.class);
+		List<Book> books = responseEntity.getBody();
+		return books;
+	}
+	
+	
+
+
+	
+
+
+
+}

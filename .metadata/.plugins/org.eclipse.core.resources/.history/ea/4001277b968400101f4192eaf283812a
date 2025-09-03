@@ -1,0 +1,65 @@
+package com.adminpanel.service;
+
+import java.util.Comparator;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
+
+import com.bookapp.exception.BookNotFoundException;
+import com.bookapp.model.Book;
+import com.bookapp.repository.IBookRepository;
+
+@Service
+public class AdminServiceImpl implements IAdminService {
+	
+
+	private IBookRepository bookRepository;
+	
+	@Autowired
+	public void setBookRepository(IBookRepository bookRepository) {
+		this.bookRepository = bookRepository;
+	}
+
+	@Override
+	public void addBook(Book book) {
+		bookRepository.save(book);
+	}
+
+	@Override
+	public void updateBook(Book book) {
+		bookRepository.save(book);
+	}
+
+	@Override
+	public void deleteBook(int bookId) {
+		bookRepository.deleteById(bookId);
+	}
+
+	@Override
+	public List<Book> getAll(String propName) {
+		Sort sort = Sort.by("title");
+		return bookRepository.findAll(sort);
+	}
+
+	@Override
+	public Book getById(int bookId) {
+		return bookRepository.findById(bookId)
+		.orElseThrow(()->new BookNotFoundException("invalid id"));
+	
+	}
+
+	@Override
+	public List<Book> getByAuthor(String author)  {
+		List<Book> books = bookRepository.findByAuthor(author);
+		if(books.isEmpty())
+			throw new BookNotFoundException("author not found");
+		return books.stream().sorted(Comparator.comparing(Book::getTitle)).toList();
+	}
+
+	
+
+
+
+}

@@ -1,0 +1,89 @@
+package com.productapp.service;
+
+import java.util.Map;
+import java.util.Optional;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+import com.productapp.model.User;
+import com.productapp.model.UserDto;
+import com.productapp.repository.IUserRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class UserServiceImpl implements IUserService {
+
+	private final IUserRepository userRepository;
+	private final ModelMapper mapper;
+
+	@Override
+	public UserDto addUser(UserDto userDto) {
+		User newUser = userRepository.save(mapper.map(userDto, User.class));
+		return mapper.map(newUser, UserDto.class);
+	}
+
+	@Override
+	public UserDto getById(long userId) {
+		User user = userRepository.findById(userId).get();
+		return mapper.map(user, UserDto.class);
+	}
+
+	// put mapping
+	@Override
+	public UserDto updateUser(long userId, UserDto userDto) {
+		// get the user object
+		User existingUser = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("invalid Id"));
+		// populate user object with dto values
+		// the old resource is replaced by a new one
+		existingUser.setCity(userDto.getCity());
+		existingUser.setEmail(userDto.getEmail());
+		existingUser.setPassword(userDto.getPassword());
+		existingUser.setMobile(userDto.getMobile());
+		// call save of repo
+		User updatedUser = userRepository.save(existingUser);
+		return mapper.map(updatedUser, UserDto.class);
+
+	}
+
+//patch mapping
+	@Override
+	public UserDto updateUserProps(long userId, Map<String, Object> updates) {
+		// get the user object
+		User existingUser = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("invalid Id"));
+		// iterate thru the map
+		updates.forEach((key, value) -> {
+			// check using switch
+			switch (key) {
+			// client sends city
+			case "city":
+				// set the value for city
+				existingUser.setCity((String) value);
+				break;
+			// client send mobile to be updated
+			case "mobile":
+				// set the value for mobile
+				existingUser.setMobile((Long) value);
+				break;
+			// client send email to be updated
+			case "email":
+				// set the value for email
+				existingUser.setEmail((String) value);
+				break;
+			// client send password to be updated
+			case "password":
+				// set the value for password
+				existingUser.setPassword((String) value);
+				break;
+			default:
+				throw new IllegalArgumentException("invalid key "+key);
+			}
+		});
+		// call save of repo
+		User updatedUser = userRepository.save(existingUser);
+		//return dto object
+		return mapper.map(updatedUser, UserDto.class);
+	}
+}

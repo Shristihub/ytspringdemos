@@ -1,0 +1,19 @@
+package com.adminpanel.service;
+
+import java.util.List;
+
+import com.adminpanel.model.Book;
+
+public interface IAdminService {
+
+	void insertBook(Book book);
+	void updateBook(Book book);
+	void deleteBookById(int bookId);
+	List<Book> getAllBooks();
+	Book getBookById(int bookId);
+	
+	List<Book> getBookByAuthor(String author);
+	
+	
+	
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.greetapp.controllers&apos; to &apos;spring-rest-jetty/src/main/java/com.greetapp&apos;&#x0D;&#x0A;- Original project: &apos;spring-security-basic&apos;&#x0D;&#x0A;- Destination element: &apos;spring-rest-jetty/src/main/java/com.greetapp&apos;&#x0D;&#x0A;- Original element: &apos;spring-security-basic/src/main/java/com.greetapp.controllers&apos;" description="Copy package" destination="=spring-rest-jetty/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.greetapp" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.greetapp.controllers" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1680762709528" version="1.0"/>
+</session>

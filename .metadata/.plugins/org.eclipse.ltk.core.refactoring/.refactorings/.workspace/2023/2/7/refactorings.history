@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;spring-jpa-bookapp&apos; to &apos;spring-jpa-booksort&apos;&#x0D;&#x0A;- Original element: &apos;spring-jpa-bookapp&apos;&#x0D;&#x0A;- Renamed element: &apos;spring-jpa-bookapp&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;spring-jpa-bookapp&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=spring-jpa-bookapp" name="spring-jpa-booksort" references="true" stamp="1676520402350" version="1.0"/>
+</session>

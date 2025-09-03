@@ -1,0 +1,33 @@
+package com.adminpanel.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.adminpanel.model.Book;
+import com.adminpanel.service.IAdminService;
+import com.bookapp.model.BookDto;
+
+@RestController
+@RequestMapping("/dashboard-api/v1")
+public class AdminController {
+	@Autowired
+	private IAdminService bookService;
+
+	ResponseEntity<Void> insertBook(Book book) {}
+	ResponseEntity<Void> updateBook(Book book) {}
+	ResponseEntity<Void> deleteBookById(int bookId){}
+	ResponseEntity<List<Book>> getAllBooks(){}
+	ResponseEntity<Book>> getBookById(int bookId){}
+	
+	ResponseEntity<List<Book>> getBookByAuthor(String author){}
+	
+	
+
+	
+	
+	
+}

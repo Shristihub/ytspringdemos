@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.productapp.service.UserDtoImpl.java&apos; to &apos;UserServiceImpl.java&apos;&#x0D;&#x0A;- Original project: &apos;spring-productapp-restapi&apos;&#x0D;&#x0A;- Original element: &apos;com.productapp.service.UserDtoImpl.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.productapp.service.UserServiceImpl.java&apos;" description="Rename compilation unit &apos;UserDtoImpl.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.productapp.service{UserDtoImpl.java" name="UserServiceImpl.java" references="false" stamp="1747027157843" version="1.0"/>
+</session>

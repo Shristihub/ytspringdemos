@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+D:\2021\apps\stsexamples\ytspringdemos\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\172751694.index
+\spring-mvc-basic\src\main\java
+D:\2021\apps\stsexamples\ytspringdemos\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2376143136.index
+\spring-mvc-basic\src\main\java

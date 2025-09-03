@@ -1,0 +1,31 @@
+package com.adminpanel.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.adminpanel.model.Book;
+import com.adminpanel.service.IAdminService;
+
+@RestController
+@RequestMapping("/dashboard-api/v1")
+public class AdminController {
+	@Autowired
+	private IAdminService bookService;
+
+	void insertBook(Book book) {}
+	void updateBook(Book book) {}
+	void deleteBookById(int bookId){}
+	List<Book> getAllBooks(){}
+	Book getBookById(int bookId){}
+	
+	List<Book> getBookByAuthor(String author){}
+	
+	
+
+	
+	
+	
+}

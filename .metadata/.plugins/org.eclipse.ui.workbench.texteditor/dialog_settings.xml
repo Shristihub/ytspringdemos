@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="hasShownOverlayPopupBefore" value="true"/>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value=""/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="throws ProductNotException"/>
+			<item value=" throws InvalidIdException"/>
+			<item value=";"/>
+			<item value="product"/>
+			<item value="productDto"/>
+			<item value="T"/>
+			<item value="t"/>
+			<item value="&gt;"/>
+			<item value="List&lt;"/>
+			<item value=",Sort sort"/>
+			<item value=""/>
+		</list>
+		<list key="replacehistory">
+			<item value=""/>
+			<item value="{}"/>
+			<item value="productDto"/>
+			<item value="product"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1188"/>
+		<item key="DIALOG_Y_ORIGIN" value="132"/>
+		<item key="DIALOG_WIDTH" value="385"/>
+		<item key="DIALOG_HEIGHT" value="523"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="java.lang.Class">
+		<item key="replaceBarOpen" value="true"/>
+		<list key="replacehistory">
+			<item value="{}"/>
+			<item value="ProductDto"/>
+			<item value="existingUser"/>
+		</list>
+		<list key="findhistory">
+			<item value=";"/>
+			<item value="{}"/>
+			<item value="Product"/>
+			<item value="user"/>
+		</list>
+	</section>
+</section>

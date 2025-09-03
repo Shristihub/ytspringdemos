@@ -1,0 +1,76 @@
+package com.adminpanel.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.adminpanel.model.Book;
+import com.bookapp.model.BookDto;
+
+@Service
+public class AdminServiceImpl implements IAdminService {
+	
+	// from here call the bookcatalog api
+	// use the inbuilt class RestTemplate
+	//autowire restTemplate
+	
+	@Autowired
+	private RestTemplate restTemplate;
+
+	private final String BASEURL = "http://localhost:8081/book-api/v1/books";
+	
+	@Override
+	public void insertBook(Book book) {
+//		http://localhost:8081/book-api/v1/books
+		ResponseEntity<Void> responseEntity= 
+				restTemplate.postForEntity(BASEURL, book, Void.class);
+		System.out.println(responseEntity.getStatusCode().value());
+	}
+
+	@Override
+	public void updateBook(Book book) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteBookById(int bookId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Book> getAllBooks(String propName) {
+//		http://localhost:8081/book-api/v1/books
+		//ccalling getALL() restendpoint
+		ResponseEntity<List> responseEntity =
+				restTemplate.getForEntity(BASEURL, List.class);
+		List<Book> books = responseEntity.getBody();
+		return books;
+	}
+
+	@Override
+	public Book getBookById(int bookId) {
+//		http://localhost:8081/book-api/v1/books/bookId?bookId=10
+		String url = BASEURL.concat("/bookId?bookId=")+bookId;
+		ResponseEntity<Book> responseEntity =  restTemplate.getForEntity(url, Book.class);
+		 Book book = responseEntity.getBody();
+		return book;
+	}
+
+	@Override
+	public List<Book> getBookByAuthor(String author) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+
+	
+
+
+
+}

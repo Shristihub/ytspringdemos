@@ -1,0 +1,74 @@
+package com.bookapp.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bookapp.model.Book;
+import com.bookapp.model.BookDto;
+import com.bookapp.repository.IBookRepository;
+
+@Service
+public class BookServiceImpl implements IBookService {
+	
+
+	private IBookRepository bookRepository;
+	@Autowired
+	private ModelMapper mapper;
+	
+	@Autowired
+	public void setBookRepository(IBookRepository bookRepository) {
+		this.bookRepository = bookRepository;
+	}
+
+	@Override
+	public void addBook(BookDto bookDto) {
+		Book book = mapper.map(bookDto, Book.class);
+		bookRepository.save(book);
+	}
+
+	@Override
+	public void updateBook(BookDto bookDto) {
+		Book book = mapper.map(bookDto, Book.class);
+		bookRepository.save(book);
+	}
+
+	@Override
+	public void deleteBook(int bookId) {
+		bookRepository.deleteById(bookId);
+	}
+
+	@Override
+	public List<BookDto> getAll() {
+		List<Book> books =  bookRepository.findAll();
+		return books.stream()
+				.map(book->mapper.map(book, BookDto.class))
+				.toList();
+	}
+
+	@Override
+	public BookDto getById(int bookId) {
+		Optional<Book> bookopt = bookRepository.findById(bookId);
+		if(bookopt.isPresent) {
+			Book book = bookopt.get();
+			return mapper.map(book, BookDto.class)
+		}
+		return null;
+	}
+
+	@Override
+	public List<BookDto> getByAuthor(String author)  {
+		List<Book> books = bookRepository.findByAuthor(author);
+		return books.stream()
+				.map(book->mapper.map(book, BookDto.class))
+				.toList();
+	}
+
+	
+
+
+
+}
