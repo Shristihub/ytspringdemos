@@ -1,0 +1,10 @@
+notification:
+  email:
+   username: Roni
+   to: Kevin@gmail.com
+   subject: Happy weekend
+
+  sms:
+   sender: Roni
+   mobileNumber: 9829302123
+   message: Welcome to online shopping
