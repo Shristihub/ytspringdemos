@@ -38,11 +38,13 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="true"/>
 		<list key="replacehistory">
+			<item value="Book"/>
 			<item value="{}"/>
 			<item value="ProductDto"/>
 			<item value="existingUser"/>
 		</list>
 		<list key="findhistory">
+			<item value="BookDto"/>
 			<item value=";"/>
 			<item value="{}"/>
 			<item value="Product"/>
