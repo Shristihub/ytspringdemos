@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bookapp.model.Book;
@@ -12,18 +11,19 @@ import com.bookapp.model.BookRequest;
 import com.bookapp.model.BookResponse;
 import com.bookapp.repository.IBookRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class BookServiceImpl implements IBookService{
 	
-	@Autowired
-	private IBookRepository bookRepository;
-	
-	@Autowired
-	private ModelMapper mapper;
+	private final IBookRepository bookRepository;
+	private final ModelMapper mapper;
+//	private EntityManager entityManager;
 
 	@Override
+	
 	public void addBook(BookRequest bookRequest) {
-		// convert bookRequest object to book entity 
 		Book book = mapper.map(bookRequest, Book.class);
 		//call the method of repo to save the entity
 		book.setIsbn(generateIsbn());
@@ -55,6 +55,7 @@ public class BookServiceImpl implements IBookService{
 	}
 
 	@Override
+	
 	public List<BookResponse> getAll() {
 		// get the list of book entities from the db
 		List<Book> books = bookRepository.findAll();
@@ -67,13 +68,8 @@ public class BookServiceImpl implements IBookService{
 
 	@Override
 	public List<BookResponse> getByAuthor(String author) {
-		// get the list of book entities from the db
-		List<Book> books = bookRepository.findByAuthor(author);
-		// convert  book entity to bookResponse object
-		List<BookResponse> bookResponses = books.stream()
-			.map(book->mapper.map(book, BookResponse.class))
-			.toList();
-		return bookResponses;
+		
+		return null;
 	}
 
 	private String generateIsbn() {

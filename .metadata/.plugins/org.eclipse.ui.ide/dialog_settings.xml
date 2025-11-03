@@ -51,6 +51,7 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="D:\2025\apps\stsexamples\jfsjuly25spring\spring-doctorapp-onetomany"/>
 			<item value="D:\2021\apps\stsexamples\jfsjunbatch\spring-bookapp-restjpa"/>
 			<item value="D:\2021\apps\stsexamples\springdemos23\spring-productapp-rest"/>
 			<item value="D:\2021\apps\stsexamples\springdemos23\spring-bookapp-mongoresponse"/>

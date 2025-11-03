@@ -1,13 +1,42 @@
 package com.bookapp;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.bookapp.model.BookRequest;
+import com.bookapp.service.IBookService;
+
 @SpringBootApplication
-public class SpringBookappModelmapperApplication {
+public class SpringBookappModelmapperApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBookappModelmapperApplication.class, args);
 	}
 
+	@Autowired
+	private IBookService bookService;
+
+	@Override
+	public void run(String... args) throws Exception {
+		
+		BookRequest book = new BookRequest("Java in Action","Kathy",900);
+		bookService.addBook(book);
+		bookService.getAll().forEach(System.out::println);
+	
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
